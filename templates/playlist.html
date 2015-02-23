@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DIA-2</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="static/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="static/demo.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="static/TableCSSCode.css" media="all" />
+
+</head>
+<body>
+
+
+			<!-- freshdesignweb top bar -->
+
+			<header>
+				<h1> DIA-2 </h1>
+            </header>
+
+
+          </br>
+
+
+      </div>
+        <div class="CSSTableGenerator">
+            <table >
+                {% for i in range (1,11) %}
+                  <th colspan="10" align="justify">Keywords for Topic {{ i }}</th>
+                  <tr>
+                  {% for entry in entries %}
+                    {% if entry.tp_number == i %}
+
+                            <td>
+                             <input type="checkbox" name="check_genre" checked value="{{ entry.word }}">{{ entry.word }}
+                            </td>
+                    {% endif %}
+                  {% endfor %}
+
+                  </tr>
+                  <th colspan="10" align="justify">Topic {{ i }}</th>
+                  <tr>
+
+                    <td colspan="10">
+
+                    {% for bing_topic in multi_list[i] %}
+
+                        <input type="radio" name="{{ i }}" value="{{ bing_topic }}">{{ bing_topic }}<br>
+                    {% endfor %}
+
+                    </td>
+                  </tr>
+                {% endfor %}
+
+            </table>
+          </div>
+
+
+
+
+</body>
+</html>
